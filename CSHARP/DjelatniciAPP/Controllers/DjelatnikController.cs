@@ -102,7 +102,7 @@ namespace DjelatniciAPP.Controllers
         /// <remarks>
         /// Primjer upita:
         ///
-        ///    PUT api/v1/Djelatnik/1
+        ///    PUT api/v1/Djelatnik
         ///
         /// </remarks>
         /// <param name="sifra">Šifra djelatnika koji se mijenja</param>  
@@ -149,12 +149,12 @@ namespace DjelatniciAPP.Controllers
         }
 
         /// <summary>
-        /// Briše smjer iz baze
+        /// Briše djelatnika iz baze
         /// </summary>
         /// <remarks>
         /// Primjer upita:
         ///
-        ///    DELETE api/v1/Djelatnik/1
+        ///    DELETE api/v1/Djelatnik
         ///    
         /// </remarks>
         /// <param name="Id">Šifra djelatnika koji se briše</param>  
