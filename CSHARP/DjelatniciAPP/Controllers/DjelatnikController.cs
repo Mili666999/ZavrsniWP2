@@ -67,8 +67,10 @@ namespace DjelatniciAPP.Controllers
         /// Dodaje novog djelatnika u bazu
         /// </summary>
         /// <remarks>
+        /// 
         ///     POST api/v1/Djelatnik
         ///     {naziv: "Primjer naziva"}
+        ///     
         /// </remarks>
         /// <param name="djelatnik">Djelatnik za unjeti u JSON formatu</param>
         /// <response code="201">Kreirano</response>
@@ -95,20 +97,19 @@ namespace DjelatniciAPP.Controllers
         }
 
         /// <summary>
-        /// Mijenja podatke postojećeg smjera u bazi
+        /// Mijenja podatke postojećeg djelatnika u bazi
         /// </summary>
         /// <remarks>
         /// Primjer upita:
         ///
-        ///    PUT api/v1/smjer/1
-        ///
+        ///    PUT api/v1/Djelatnik/1
         ///
         /// </remarks>
-        /// <param name="sifra">Šifra smjera koji se mijenja</param>  
-        /// <param name="smjer">Smjer za unijeti u JSON formatu</param>  
-        /// <returns>Svi poslani podaci od smjera koji su spremljeni u bazi</returns>
+        /// <param name="sifra">Šifra djelatnika koji se mijenja</param>  
+        /// <param name="djelatnik">Djelatnik za unijeti u JSON formatu</param>  
+        /// <returns>Svi poslani podaci od djelatnika koji su spremljeni u bazi</returns>
         /// <response code="200">Sve je u redu</response>
-        /// <response code="204">Nema u bazi smjera kojeg želimo promijeniti</response>
+        /// <response code="204">Nema u bazi djelatnika kojeg želimo promijeniti</response>
         /// <response code="415">Nismo poslali JSON</response> 
         /// <response code="503">Baza nedostupna</response> 
         [HttpPut]
@@ -153,10 +154,10 @@ namespace DjelatniciAPP.Controllers
         /// <remarks>
         /// Primjer upita:
         ///
-        ///    DELETE api/v1/smjer/1
+        ///    DELETE api/v1/Djelatnik/1
         ///    
         /// </remarks>
-        /// <param name="Id">Šifra smjera koji se briše</param>  
+        /// <param name="Id">Šifra djelatnika koji se briše</param>  
         /// <returns>Odgovor da li je obrisano ili ne</returns>
         /// <response code="200">Sve je u redu, obrisano je u bazi</response>
         /// <response code="204">Nema u bazi djelatnika kojeg želimo obrisati</response>
