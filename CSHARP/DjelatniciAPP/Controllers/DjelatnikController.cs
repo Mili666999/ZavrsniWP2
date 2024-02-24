@@ -183,7 +183,7 @@ namespace DjelatniciAPP.Controllers
                 _context.Djelatnici.Remove(DjelatnikIzBaze);
                 _context.SaveChanges();
 
-                return new JsonResult("{\"poruka\": \"OBRISANO\"}");
+                return new JsonResult(new { poruka = "Obrisano" });
 
 
             }
