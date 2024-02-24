@@ -36,6 +36,16 @@ builder.Services.AddSwaggerGen(sgo =>
 
 });
 
+// Svi se od svuda na sve moguće načine mogu spojitina naš API
+// Čitati https://code-maze.com/aspnetcore-webapi-best-practices/
+builder.Services.AddCors(opcije =>
+{
+    opcije.AddPolicy("CorsPolicy",
+        builder =>
+            builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+    );
+
+});
 
 //Dodavanje baze podataka
 builder.Services.AddDbContext<DjelatniciContext>(o =>
