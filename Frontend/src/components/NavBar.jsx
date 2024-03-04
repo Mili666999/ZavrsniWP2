@@ -23,11 +23,15 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavDropdown title="Izbornik" id="basic-nav-dropdown">
-              <NavDropdown.Item>Djelatnici</NavDropdown.Item>
+              <NavDropdown.Item>
+                Djelatnici
+              </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Dokumenti
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Fotografije</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                Fotografije
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
