@@ -8,24 +8,29 @@ import './NavBar.css';
 
 function NavBar() {
 
-    const navigate = useNavigate
+    const navigate = useNavigate();
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand 
             className='linkPocetna'
-        onClick={()=>navigate(RoutesNames.HOME)} >
+            onClick={()=>navigate(RoutesNames.HOME)}
+        >
             Djelatnici APP
             </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item>
+
+            <NavDropdown title="Izbornik" 
+            id="basic-nav-dropdown">
+            <NavDropdown.Item
+              onClick={()=>navigate(RoutesNames.DJELATNICI_PREGLED)}
+            >
                 Djelatnici
-                </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
                 Dokumenti
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">

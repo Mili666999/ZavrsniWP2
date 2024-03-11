@@ -1,5 +1,10 @@
 export const RoutesNames = {
 
-    HOME: '/'
+    HOME: '/',
+    DJELATNICI_PREGLED: '/djelatnici'
 
+};
+
+export const App = {
+    DEV: true
 };
