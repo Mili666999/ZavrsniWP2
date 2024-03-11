@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import DjelatnikService from "../../services/DjelatnikService";
+import { MdOutlineAddCircleOutline } from "react-icons/md";
+import { Link } from "react-router-dom";
+
+
 
 
 export default function Djelatnici(){
@@ -24,6 +28,9 @@ export default function Djelatnici(){
     return(
 
         <Container>
+            <Link>
+                <MdOutlineAddCircleOutline />
+            </Link>
             <Table striped bordered hover responsive>
                 <thead>
                     <tr>
