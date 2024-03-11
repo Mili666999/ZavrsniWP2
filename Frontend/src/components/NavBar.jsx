@@ -32,7 +32,11 @@ function NavBar() {
                 Fotografije
                 </NavDropdown.Item>
             </NavDropdown>
+            
           </Nav>
+          </Navbar.Collapse>
+          <Navbar.Collapse className="justify-content-end">
+          <Nav.Link target="_blank" href="https://djelatnici-001-site1.ltempurl.com/swagger/index.html">API dokumentacija</Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
