@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import DjelatnikService from "../../services/DjelatnikService";
-import { MdOutlineAddCircleOutline } from "react-icons/md";
+import { MdPersonAddAlt1 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { RoutesNames } from "../../constants";
 
 
 
@@ -28,8 +29,8 @@ export default function Djelatnici(){
     return(
 
         <Container>
-            <Link>
-                <MdOutlineAddCircleOutline />
+            <Link to={RoutesNames.DJELATNICI_NOVI} className= "btn btn-success gumb">
+                <MdPersonAddAlt1 /> Dodaj
             </Link>
             <Table striped bordered hover responsive>
                 <thead>
