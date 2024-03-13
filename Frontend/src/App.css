@@ -1,4 +1,20 @@
+.desno{
+    text-align: right;
+}
+
+.sredina{
+    text-align: center;
+}
+
 .gumb{
     width: 100%;
     margin-bottom: 0.5cm;
+}
+
+.btn-success {
+    background-color: #a9dab8;
+}
+
+.akcije{
+    margin-top: 1.5rem;
 }

@@ -3,6 +3,7 @@ import Pocetna from "./pages/Pocetna"
 import { RoutesNames } from "./constants"
 import NavBar from "./components/NavBar"
 import Djelatnici from "./pages/djelatnici/Djelatnici"
+import 'bootstrap/dist/css/bootstrap.min.css'
 import'./App.css';
 import DjelatniciDodaj from "./pages/djelatnici/DjelatniciDodaj"
 

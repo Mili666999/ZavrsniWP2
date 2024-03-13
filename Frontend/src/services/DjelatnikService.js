@@ -13,6 +13,9 @@ async function getDjelatnici(){
 }
 
 
+
+
 export default{
-    getDjelatnici
+    getDjelatnici,
+    deleteDjelatnika
 };
