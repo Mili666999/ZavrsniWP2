@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Container, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import DjelatnikService from "../../services/DjelatnikService";
 import { MdPersonAddAlt1 } from "react-icons/md";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RoutesNames } from "../../constants";
 
 
@@ -11,6 +11,7 @@ import { RoutesNames } from "../../constants";
 
 export default function Djelatnici(){
     const [djelatnici, setDjelatnici] = useState();
+    const navigate = useNavigate();
 
     async function dohvatiDjelatnike(){
         await DjelatnikService.getDjelatnici()
@@ -26,19 +27,18 @@ export default function Djelatnici(){
         dohvatiDjelatnike();
     },[]);
 
-    async function obrisi(djelatnik){
-        await DjelatnikService.deleteDjelatnika(djelatnik.sifra)
-        .then((res)=>{
-            dohvatiDjelatnike();
-        })
-        .catch((e)=>{
-            alert(e);
-        });
-    }
-        
-    }
 
-    return(
+
+async function obrisiDjelatnik(id){
+    const odgovor = await SmjerService.obrisiDjelatnik(id);
+    if (odgovor.ok){
+        alert(odgovor.poruka.data.poruka);
+        dohvatiDjelatnike();
+    }
+    
+}
+
+    return (
 
         <Container>
             <Link to={RoutesNames.DJELATNICI_NOVI} className= "btn btn-success gumb">
@@ -64,17 +64,22 @@ export default function Djelatnici(){
                             <td>{djelatnik.oib}</td>
                             <td>{djelatnik.iban}</td>
                             <td className="sredina">
-                                <Link to={RoutesNames.DJELATNICI_PROMJENI}>
-                                    <FaEdit
+                            <Button 
+                                variant="primary"
+                                onClick={()=>{navigate(`/djelatnici/${djelatnik.id}`)}}>
+                                    <FaEdit 
                                     size={25}
                                     />
-                                </Link>
+                                </Button>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <Link onClick={obrisi(djelatnik)}>
-                                    <FaTrash
+                                <Button
+                                    variant="danger"
+                                    onClick={()=>obrisiDjelatnik(djelatnik.id)}
+                                >
+                                    <FaTrash  
                                     size={25}
                                     />
-                                </Link>
+                                </Button>
                             
                             </td>
                         </tr>
@@ -86,3 +91,4 @@ export default function Djelatnici(){
 
     );
                     
+}                    
