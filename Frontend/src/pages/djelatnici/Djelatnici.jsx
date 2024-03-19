@@ -9,39 +9,39 @@ import { RoutesNames } from "../../constants";
 
 
 
-export default function Djelatnici(){
+export default function Djelatnici() {
     const [djelatnici, setDjelatnici] = useState();
     const navigate = useNavigate();
 
-    async function dohvatiDjelatnike(){
+    async function dohvatiDjelatnike() {
         await DjelatnikService.getDjelatnici()
-        .then((res)=>{
-            setDjelatnici(res.data);
-        })
-        .catch((e)=>{
-            alert(e);
-        });
+            .then((res) => {
+                setDjelatnici(res.data);
+            })
+            .catch((e) => {
+                alert(e);
+            });
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         dohvatiDjelatnike();
-    },[]);
+    }, []);
 
 
 
-async function obrisiDjelatnik(id){
-    const odgovor = await SmjerService.obrisiDjelatnik(id);
-    if (odgovor.ok){
-        alert(odgovor.poruka.data.poruka);
-        dohvatiDjelatnike();
+    async function obrisiDjelatnika(id) {
+        const odgovor = await SmjerService.obrisiDjelatnika(id);
+        if (odgovor.ok) {
+            alert(odgovor.poruka);
+            dohvatiDjelatnike();
+        }
+
     }
-    
-}
 
     return (
 
         <Container>
-            <Link to={RoutesNames.DJELATNICI_NOVI} className= "btn btn-success gumb">
+            <Link to={RoutesNames.DJELATNICI_NOVI} className="btn btn-success gumb">
                 <MdPersonAddAlt1 /> Dodaj
             </Link>
             <Table striped bordered hover responsive>
@@ -56,7 +56,7 @@ async function obrisiDjelatnik(id){
                     </tr>
                 </thead>
                 <tbody>
-                    {djelatnici && djelatnici.map((djelatnik,index)=>(
+                    {djelatnici && djelatnici.map((djelatnik, index) => (
                         <tr key={index}>
                             <td>{djelatnik.ime}</td>
                             <td>{djelatnik.prezime}</td>
@@ -64,31 +64,33 @@ async function obrisiDjelatnik(id){
                             <td>{djelatnik.oib}</td>
                             <td>{djelatnik.iban}</td>
                             <td className="sredina">
-                            <Button 
-                                variant="primary"
-                                onClick={()=>{navigate(`/djelatnici/${djelatnik.id}`)}}>
-                                    <FaEdit 
-                                    size={25}
+                                <Button
+                                    variant="primary"
+                                    onClick={() => { navigate(`/djelatnici/${djelatnik.id}`) }}>
+                                    <FaEdit
+                                        size={25}
                                     />
                                 </Button>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                                 <Button
                                     variant="danger"
-                                    onClick={()=>obrisiDjelatnik(djelatnik.id)}
+                                    onClick={() => obrisiDjelatnika(djelatnik.id)}
                                 >
-                                    <FaTrash  
-                                    size={25}
+                                    <FaTrash
+                                        size={25}
                                     />
                                 </Button>
-                            
+
                             </td>
                         </tr>
-                        
+
                     ))}
                 </tbody>
             </Table>
         </Container>
 
     );
-                    
+
 }                    
