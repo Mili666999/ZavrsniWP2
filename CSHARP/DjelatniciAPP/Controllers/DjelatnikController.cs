@@ -178,12 +178,13 @@ namespace DjelatniciAPP.Controllers
 
                 if (DjelatnikIzBaze == null)
                 {
-                    return StatusCode(StatusCodes.Status204NoContent, id);
+                    return BadRequest("Ne postoji djelatnik sa šifrom " + id + " u bazi");
                 }
+                
                 _context.Djelatnici.Remove(DjelatnikIzBaze);
                 _context.SaveChanges();
 
-                return new JsonResult(new { poruka = "Obrisano" });
+                return Ok("Obrisano"); //new JsonResult(new { poruka = "Obrisano" });
 
 
             }
