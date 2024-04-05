@@ -30,7 +30,7 @@ export default function Djelatnici() {
 
 
     async function obrisiDjelatnika(id) {
-        const odgovor = await SmjerService.obrisiDjelatnika(id);
+        const odgovor = await DjelatnikService.obrisiDjelatnika(id);
         if (odgovor.ok) {
             alert(odgovor.poruka.data.poruka);
             dohvatiDjelatnike();
