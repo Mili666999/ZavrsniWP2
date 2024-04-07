@@ -20,7 +20,20 @@ async function obrisiDjelatnika(id){
     });
 }
 
+async function dodajDjelatnika(djelatnik){
+    const odgovor = await httpService.post('/Djelatnik', djelatnik)
+    .then(()=>{
+        return {ok: true, poruka: 'Uspješno dodano'}
+    })
+    .catch((e)=>{
+         console.log(e.response.data.errors.Naziv[0]);
+        return {ok: false, poruka: e.response.data.errors.Naziv[0]}
+    });
+    return odgovor;
+}
+
 export default{
     getDjelatnici,
-    obrisiDjelatnika
+    obrisiDjelatnika,
+    dodajDjelatnika
 };

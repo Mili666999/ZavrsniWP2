@@ -49,6 +49,7 @@ export default function Djelatnici() {
                     <tr>
                         <th>Ime</th>
                         <th>Prezime</th>
+                        <th>Email</th>
                         <th>Mobitel</th>
                         <th>OIB</th>
                         <th>IBAN</th>
@@ -60,6 +61,7 @@ export default function Djelatnici() {
                         <tr key={index}>
                             <td>{djelatnik.ime}</td>
                             <td>{djelatnik.prezime}</td>
+                            <td>{djelatnik.email}</td>
                             <td>{djelatnik.mobitel}</td>
                             <td>{djelatnik.oib}</td>
                             <td>{djelatnik.iban}</td>
