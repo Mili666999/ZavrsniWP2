@@ -63,6 +63,31 @@ namespace DjelatniciAPP.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("{id:int}")]
+        public IActionResult GetById(int id)
+        {
+            //Kontrola ukoliko upit nije valjan
+            if (!ModelState.IsValid || id<=0)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var Djelatnik = _context.Djelatnici.Find(id);
+                if (Djelatnik == null)
+                {
+                    return new EmptyResult();
+                }
+                return new JsonResult(Djelatnik);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status503ServiceUnavailable, ex.Message);
+            }
+        }
+
         /// <summary>
         /// Dodaje novog djelatnika u bazu
         /// </summary>
