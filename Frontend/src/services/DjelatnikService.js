@@ -33,7 +33,7 @@ async function dodajDjelatnika(djelatnik){
 }
 
 async function promjeniDjelatnika(id, djelatnik){
-    const odgovor = await httpService.put('/Djelatnik', + id, djelatnik)
+    const odgovor = await httpService.put('/Djelatnik/' + id, djelatnik)
     .then(()=>{
         return {ok: true, poruka: 'Uspješno promjenjeno'}
     })
