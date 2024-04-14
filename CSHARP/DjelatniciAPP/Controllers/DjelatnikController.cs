@@ -209,7 +209,7 @@ namespace DjelatniciAPP.Controllers
                 _context.Djelatnici.Remove(DjelatnikIzBaze);
                 _context.SaveChanges();
 
-                return Ok("Obrisano"); //new JsonResult(new { poruka = "Obrisano" });
+                return new JsonResult(new { poruka = "Obrisano" });
 
 
             }
